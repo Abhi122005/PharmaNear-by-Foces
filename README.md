@@ -20,6 +20,12 @@
 
 ---
 
+## 📸 Screenshots
+
+> **Note:** Add screenshots here showcasing the user search, map view, and admin dashboard.
+
+---
+
 ## 💻 Tech Stack
 
 | Layer       | Technology              | Key Libraries/Tools |

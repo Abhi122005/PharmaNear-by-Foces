@@ -47,13 +47,46 @@ If you only want to test a specific area:
 
 *(If you are ever confused about which test to run, just run the full `pnpm run test` command from the root directory!)*
 
+## 📝 Issue Claiming Process
+
+Before starting work on any feature or bug fix:
+1. Browse the [Issues](https://github.com/Foces-core/pharmanear/issues) tab.
+2. If you find an issue you'd like to work on, leave a comment: *"I would like to work on this."*
+3. Wait for a maintainer to assign the issue to you.
+4. If the issue you want to work on doesn't exist, create a new issue first and request to be assigned.
+
+## 🌿 Branching Workflow
+
+We use a feature-branch workflow. Please follow these naming conventions for branches:
+- **Feature:** `feature/<issue-number>-<short-description>` (e.g., `feature/42-add-map-view`)
+- **Bug Fix:** `fix/<issue-number>-<short-description>` (e.g., `fix/15-login-crash`)
+- **Documentation:** `docs/<short-description>`
+- **Chore:** `chore/<short-description>`
+
+1. Create a new branch from `main`: `git checkout -b feature/your-feature-name`.
+2. Keep your branch up to date with `main` by rebasing or merging regularly.
+
+## 💬 Commit Naming Format
+
+We follow [Conventional Commits](https://www.conventionalcommits.org/). Your commit messages should be structured as follows:
+
+`<type>(<optional scope>): <description>`
+
+Examples:
+- `feat: add medicine search bar`
+- `fix(auth): resolve JWT expiration bug`
+- `docs: update README with screenshots`
+- `style: format server.js`
+- `test: add unit tests for medicine controller`
+
 ## 📝 Pull Request Process
 
-1. Create a new branch from `main` (e.g., `git checkout -b feature/feature-name`).
-2. Make your changes and commit them with clear, descriptive messages.
+1. Make your changes in your created branch.
+2. Commit them using the Conventional Commits format.
 3. Run the tests locally using `pnpm run test` and ensure they pass.
 4. Push your branch and open a Pull Request targeting the `main` branch.
-5. In your PR description, explain what you changed and why.
+5. Fill out the PR template completely. Link the issue your PR resolves (e.g., "Closes #42").
+6. Await review from maintainers and make any requested changes.
 
 ## 🏛️ Architecture Goals & Memory
 
