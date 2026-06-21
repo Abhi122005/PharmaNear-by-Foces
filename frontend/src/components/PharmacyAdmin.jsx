@@ -154,6 +154,7 @@ export default function PharmacyAdmin() {
       }));
       console.log("Profile saved:", data);
       setSaveError("");
+      window.location.reload();
     } catch (e) {
       console.error("Unable to save profile:", e);
       setSaveError(e.message || "Unable to save profile. Please try again.");
