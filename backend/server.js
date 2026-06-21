@@ -31,29 +31,23 @@ app.use(cors({
 }));
 
 app.use(express.json());
-let mongoUrl = process.env.MONGO_URL;
-
-async function connectDB() {
-  if (!mongoUrl) {
-    console.warn("⚠️ MONGO_URL not provided. Starting an in-memory MongoDB instance for demo purposes...");
-    const { MongoMemoryServer } = await import("mongodb-memory-server");
-    const mongoServer = await MongoMemoryServer.create();
-    mongoUrl = mongoServer.getUri();
-  }
-
-  mongoose
-    .connect(mongoUrl)
-    .then(() => {
-      console.log("✅ Connected to MongoDB");
-      // Fetch drugs after successful connection
-      //fetchDrugs();
-    })
-    .catch((err) => {
-      console.error("❌ Error connecting to MongoDB:", err.message);
-      process.exit(1);
-    });
+if (!process.env.MONGO_URL) {
+  console.error("❌ ERROR: MONGO_URL is not defined in environment variables.");
+  console.error("Please create a .env file in the backend directory based on .env-sample.");
+  process.exit(1);
 }
-connectDB();
+
+mongoose
+  .connect(process.env.MONGO_URL)
+  .then(() => {
+    console.log("✅ Connected to MongoDB");
+    // Fetch drugs after successful connection
+    //fetchDrugs();
+  })
+  .catch((err) => {
+    console.error("❌ Error connecting to MongoDB:", err.message);
+    process.exit(1);
+  });
 
 const port = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET;
