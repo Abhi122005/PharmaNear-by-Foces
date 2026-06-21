@@ -5,17 +5,17 @@ services:
     env: node
     plan: free
     rootDir: backend
-    buildCommand: pnpm install
+    buildCommand: pnpm install --prod
     startCommand: pnpm start
     envVars:
       - key: NODE_VERSION
-        value: 18.x
+        value: 20
       - key: MONGO_URL
         sync: false # Requires manual entry of the database connection string in Render Dashboard
       - key: JWT_SECRET
         generateValue: true # Render automatically generates a secure string
       - key: CORS_ORIGIN
-        value: "*" # Allow all origins initially
+        value: "https://pharmanear-aneu.onrender.com"
 
   # 2. The React/Vite Frontend
   - type: web
@@ -26,7 +26,7 @@ services:
     staticPublishPath: dist
     envVars:
       - key: NODE_VERSION
-        value: 18.x
-      # You will need to manually set this in the Render dashboard after the backend deploys
+        value: 20
+      # Set this to your backend URL (without trailing slash) in the Render dashboard
       - key: VITE_BACKEND_URL
         sync: false

@@ -7,8 +7,7 @@ import mongoose from "mongoose";
 import Medicine from "./models/medicine.js";
 import Pharmacy from "./models/pharmacy.js";
 import Stock from "./models/stock.js";
-import { MongoMemoryServer } from "mongodb-memory-server";
-import { seedFakeData } from "./seedLocalDB.js";
+
 
 dotenv.config();
 
@@ -39,6 +38,7 @@ let mongoUrl = process.env.MONGO_URL;
 
 if (!mongoUrl) {
   console.log("⚠️ MONGO_URL not found. Starting in-memory MongoDB for local development...");
+  const { MongoMemoryServer } = await import("mongodb-memory-server");
   const mongoServer = await MongoMemoryServer.create();
   mongoUrl = mongoServer.getUri();
 }
@@ -48,6 +48,7 @@ mongoose
   .then(async () => {
     console.log("✅ Connected to MongoDB");
     if (!process.env.MONGO_URL) {
+      const { seedFakeData } = await import("./seedLocalDB.js");
       await seedFakeData();
     }
   })
