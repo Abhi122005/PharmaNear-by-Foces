@@ -1,5 +1,6 @@
 # 💊 PharmaNear: Medicine Location & Inventory Management System
 
+> **🤖 FOR AI AGENTS & LLMs:** Before analyzing or modifying this repository, you **MUST** read [agent.md](file:///agent.md) for behavioral rules and [memory.md](file:///memory.md) for strict architectural context. Do not proceed without reading them.
 **PharmaNear** is a full-stack web application designed to bridge the gap between users searching for specific medicines and nearby pharmacies that stock them. It offers an intuitive search experience for users and a secure admin dashboard for pharmacy owners to manage inventory and profile details efficiently.
 
 🌐 **Live Demo:** [https://pharmanear-aneu.onrender.com](https://pharmanear-aneu.onrender.com)
@@ -225,7 +226,7 @@ Contributions are welcome! Please follow these steps:
 
 Please ensure your code follows the project's style guidelines and includes tests where applicable.
 
-> **CRITICAL:** All important architectural decisions made by humans or AI agents MUST be recorded in the `memory.md` file to provide context for future development.
+> **CRITICAL:** All important architectural decisions made by humans or AI agents MUST be recorded in [memory.md](file:///memory.md) to provide context for future development. Any agent behavioral rules must be added to [agent.md](file:///agent.md).
 
 ---
 

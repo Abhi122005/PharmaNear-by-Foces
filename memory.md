@@ -39,3 +39,9 @@ Connects patients with nearby pharmacies to check medication stock. Features use
 - `<style jsx>` in `PharmacyPage.jsx` is Next.js syntax, not valid in Vite/React — causes a React warning.
 
 **RECORD ANY AND ALL FUTURE ARCHITECTURAL OR IMPORTANT DETAILS IN THIS DOCUMENT.**
+
+---
+
+## 🔗 Related Documentation
+- [agent.md](file:///agent.md) - Strict behavioral rules for AI Agents.
+- [README.md](file:///README.md) - Tech Stack, Getting Started guide, and folder structure.
