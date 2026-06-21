@@ -1,0 +1,37 @@
+services:
+  # 1. The Node.js Backend
+  - type: web
+    name: pharmanear-backend
+    env: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18.x
+      - key: MONGO_URL
+        sync: false # Requires manual entry of the database connection string in Render Dashboard
+      - key: JWT_SECRET
+        generateValue: true # Render automatically generates a secure string
+      - key: CORS_ORIGIN
+        fromService:
+          type: web
+          name: pharmanear-frontend
+          property: url
+
+  # 2. The React/Vite Frontend
+  - type: web
+    name: pharmanear-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: NODE_VERSION
+        value: 18.x
+      # This critical variable connects the frontend build to your live backend automatically
+      - key: VITE_BACKEND_URL
+        fromService:
+          type: web
+          name: pharmanear-backend
+          property: url
