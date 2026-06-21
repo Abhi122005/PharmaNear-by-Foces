@@ -140,6 +140,12 @@ The frontend will run on [http://localhost:5173](http://localhost:5173).
 
 ## 📖 Usage & Local Testing
 
+### 1. Data Seeding (Where does the data come from?)
+For a smooth developer experience, the app automatically handles data seeding on startup:
+- **Medicines:** If the database has 0 medicines, the server automatically downloads thousands of real-world US drugs from the **NIH RxTerms API** into your MongoDB database.
+- **Local Pharmacies:** If you run locally without a `MONGO_URL`, the server will auto-generate fake pharmacies and attach random stock to them.
+- **Production Pharmacies:** If you deploy to production with an empty pharmacy database, the server will inject 3 fake pharmacies and stock them with common medicines like "Acetaminophen" and "Ibuprofen" so the live map isn't completely empty.
+
 ### 1. Creating a Pharmacy (Admin Setup)
 To test the admin features locally or on the live site:
 1. Navigate to the **Sign Up** page.

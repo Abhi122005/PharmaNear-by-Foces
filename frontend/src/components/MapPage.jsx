@@ -49,6 +49,12 @@ function Routing({ userLocation, selectedPharmacy }) {
   useEffect(() => {
     if (!map || !selectedPharmacy) return;
 
+    // Pan to the selected pharmacy
+    map.flyTo(L.latLng(selectedPharmacy.lat, selectedPharmacy.lng), 15, {
+        animate: true,
+        duration: 1.5
+    });
+
     // Remove old route
     map.eachLayer((layer) => {
       if (layer instanceof L.Routing.Control) {
@@ -200,7 +206,7 @@ export default function MapPage() {
       <div className="pharmacy-list-scroll">
         {pharmacies.length > 0 ? (
           pharmacies.map((pharmacy) => (
-            <div key={pharmacy.id} className="pharmacy-card">
+            <div key={pharmacy.id} className="pharmacy-card" onClick={() => setSelectedPharmacy(pharmacy)} style={{ cursor: 'pointer' }}>
               <div className="pharmacy-info">
                 <h3>{pharmacy.name}</h3>
                 <p>Address: {pharmacy.address}</p>
