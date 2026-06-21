@@ -140,15 +140,7 @@ Click on map markers to view pharmacy details, including contact info, opening h
 
 ---
 
-## ☁️ Cloud Deployment (Render)
 
-This project uses Render Blueprints (`render.yaml`) for Infrastructure-as-Code deployments. 
-
-1. Push your code to the `main` branch.
-2. In the [Render Dashboard](https://dashboard.render.com/), click **New + -> Blueprint** and connect this repository.
-3. Render will automatically detect the backend and frontend configurations.
-4. **CRITICAL:** When prompted, enter your MongoDB connection string in the `MONGO_URL` field. 
-5. **After backend deployment**, copy the backend URL, go to the frontend service -> Environment, and set `VITE_BACKEND_URL` to the live backend URL.
 
 ## 🌍 Environment Variables
 
