@@ -11,7 +11,7 @@ services:
       - key: NODE_VERSION
         value: 18.x
       - key: MONGO_URL
-        sync: false # Requires manual entry of the database connection string in Render Dashboard
+        value: "mongodb+srv://sebinmathew543_db_user:iriht@cluster0.48kl38n.mongodb.net/?appName=Cluster0"
       - key: JWT_SECRET
         generateValue: true # Render automatically generates a secure string
       - key: CORS_ORIGIN
