@@ -112,6 +112,14 @@ app.get("/", (req, res) => {
   res.send("server check");
 });
 
+app.get("/api/health", (req, res) => {
+  res.status(200).json({
+    status: "UP",
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString(),
+  });
+});
+
 app.post("/api/pharmacy/signup", async (req, res) => {
   try {
     const { user_name, owner_name, city, phone_number, password } = req.body;
