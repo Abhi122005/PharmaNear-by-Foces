@@ -1,5 +1,7 @@
 # Contributing to PharmaNear
 
+> **⚠️ CAUTION:** This repository is currently exclusively for contributions from College of Engineering students participating in the Season of Code event by Google Developers Group (GDG). In the future, others might be allowed to contribute, but right now it is restricted to participants only.
+
 **⚠️ IMPORTANT: You must ONLY work on an issue if it has been explicitly assigned to you.**
 
 First off, thank you for considering contributing to PharmaNear! It's people like you that make open-source a great community.
