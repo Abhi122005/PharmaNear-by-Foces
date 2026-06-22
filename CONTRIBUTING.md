@@ -1,5 +1,7 @@
 # Contributing to PharmaNear
 
+**⚠️ IMPORTANT: You must ONLY work on an issue if it has been explicitly assigned to you.**
+
 First off, thank you for considering contributing to PharmaNear! It's people like you that make open-source a great community.
 
 ## 🛠️ Local Development Setup
@@ -48,8 +50,6 @@ If you only want to test a specific area:
 *(If you are ever confused about which test to run, just run the full `pnpm run test` command from the root directory!)*
 
 ## 📝 Issue Claiming Process
-
-**⚠️ IMPORTANT: You must ONLY work on an issue if it has been explicitly assigned to you.**
 
 Before starting work on any feature or bug fix:
 1. Browse the [Issues](https://github.com/Foces-core/pharmanear/issues) tab.
