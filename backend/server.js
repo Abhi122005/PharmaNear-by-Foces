@@ -7,6 +7,7 @@ import mongoose from "mongoose";
 import Medicine from "./models/medicine.js";
 import Pharmacy from "./models/pharmacy.js";
 import Stock from "./models/stock.js";
+import rateLimit from "express-rate-limit";
 
 
 dotenv.config();
@@ -145,7 +146,13 @@ app.get("/api/health", (_req, res) => {
   }
 })
 
-app.post("/api/pharmacy/signup", async (req, res) => {
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 10, // Limit each IP to 10 requests per window
+  message: { message: "Too many login/signup attempts, please try again later." }
+});
+
+app.post("/api/pharmacy/signup", authLimiter, async (req, res) => {
   try {
     const { user_name, owner_name, city, phone_number, password } = req.body;
 
@@ -205,7 +212,7 @@ app.post("/api/pharmacy/signup", async (req, res) => {
 });
 
 // LOGIN
-app.post("/api/pharmacy/login", async (req, res) => {
+app.post("/api/pharmacy/login", authLimiter, async (req, res) => {
   console.log("Login request received:", req.body);
 
   const { user_name, password } = req.body;

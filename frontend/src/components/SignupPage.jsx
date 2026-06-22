@@ -22,6 +22,12 @@ function SignupPage() {
     setIsLoading(true)
     setError('')
 
+    if (password !== confirmPassword) {
+      setError('Passwords do not match')
+      setIsLoading(false)
+      return
+    }
+
     try {
       const response = await fetch(`${BACKEND_URL}/api/pharmacy/signup`, {
         method: 'POST',
