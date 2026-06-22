@@ -9,6 +9,8 @@ Closes #
 
 ## 📸 Screenshots
 <!-- If your changes affect the UI, please include before/after screenshots here. -->
+*If your changes affect the UI, please include before/after screenshots.*
+
 | Before | After |
 | ------ | ----- |
 |        |       |

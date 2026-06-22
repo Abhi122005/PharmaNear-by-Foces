@@ -39,7 +39,7 @@ Connects patients with nearby pharmacies to check medication stock. Features use
 
 ### Render Deployment
 
-- `render.yaml` defines the Blueprint for auto-deploy.
+- Deployment is configured via the Render dashboard (no `render.yaml` Blueprint in the repo).
 - Backend build uses `pnpm install --prod` to skip devDependencies (avoids 800MB mongodb-memory-server download).
 - CORS whitelist includes `https://pharmanear-aneu.onrender.com` hardcoded, plus dynamic `CORS_ORIGIN` env var (supports comma-separated values).
 
@@ -52,10 +52,26 @@ Connects patients with nearby pharmacies to check medication stock. Features use
 
 - We currently use a single-branch workflow. All active development and pull requests target the `main` branch directly. The CI pipeline runs tests against PRs to `main` to keep everything simple and fast.
 
+### Test Environment (June 2026)
+
+- `server.js` skips all database seeding (`seedFakeData`, medicine fetch, pharmacy seed) when `NODE_ENV === "test"` to prevent `MongoTopologyClosedError` in Jest.
+
+### Package Management Security (June 2026)
+
+- All networked package manager commands (`pnpm install`, `npm`, `pip`, etc.) must be run through the `sfw` (Socket Firewall) tool to protect against malicious dependencies.
+- Documented in `agent.md`, `CONTRIBUTING.md`, and `README.md`.
+
+### Issue Assignment Policy (June 2026)
+
+- Contributors must only work on issues explicitly assigned to them by a maintainer.
+- Enforced via `CONTRIBUTING.md`, `agent.md`, PR template checklist, and issue template warnings.
+
 ## 📝 Known Issues
 
 - Currency symbol: Some UI elements still use `$` instead of `₹` (INR). See GitHub Issue #21.
 - `<style jsx>` in `PharmacyPage.jsx` is Next.js syntax, not valid in Vite/React — causes a React warning.
+- `PharmacyDashboard.jsx` is a non-functional prototype using hardcoded dummy data (not connected to backend).
+- Health endpoint catch block uses wrong variable name (`err` instead of `error`) — will crash if the endpoint throws.
 
 **RECORD ANY AND ALL FUTURE ARCHITECTURAL OR IMPORTANT DETAILS IN THIS DOCUMENT.**
 
@@ -63,5 +79,5 @@ Connects patients with nearby pharmacies to check medication stock. Features use
 
 ## 🔗 Related Documentation
 
-- [agent.md](file:///agent.md) - Strict behavioral rules for AI Agents.
-- [README.md](file:///README.md) - Tech Stack, Getting Started guide, and folder structure.
+- [agent.md](agent.md) - Strict behavioral rules for AI Agents.
+- [README.md](README.md) - Tech Stack, Getting Started guide, and folder structure.

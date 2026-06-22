@@ -1,6 +1,6 @@
 # 💊 PharmaNear: Medicine Location & Inventory Management System
 
-> **🤖 FOR AI AGENTS & LLMs:** Before analyzing or modifying this repository, you **MUST** read [agent.md](file:///agent.md) for behavioral rules and [memory.md](file:///memory.md) for strict architectural context. Do not proceed without reading them.
+> **🤖 FOR AI AGENTS & LLMs:** Before analyzing or modifying this repository, you **MUST** read [agent.md](agent.md) for behavioral rules and [memory.md](memory.md) for strict architectural context. Do not proceed without reading them.
 **PharmaNear** is a full-stack web application designed to bridge the gap between users searching for specific medicines and nearby pharmacies that stock them. It offers an intuitive search experience for users and a secure admin dashboard for pharmacy owners to manage inventory and profile details efficiently.
 
 🌐 **Live Demo:** [https://pharmanear-aneu.onrender.com](https://pharmanear-aneu.onrender.com)
@@ -94,8 +94,8 @@ Follow these steps to set up and run the project locally.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Foces-core/pharmanear.git
-cd pharmanear
+git clone https://github.com/Foces-core/PharmaNear-by-Foces.git
+cd PharmaNear-by-Foces
 ```
 
 ### 2. Installation & Zero-Config Setup
@@ -135,7 +135,7 @@ pnpm dev
 ```
 The frontend will run on [http://localhost:5173](http://localhost:5173).
 
-### 5. Access the Application
+### 6. Access the Application
 - Open [http://localhost:5173](http://localhost:5173) in your browser.
 - For pharmacy admin features, sign up or log in as a pharmacy owner.
 
@@ -233,7 +233,7 @@ Contributions are welcome! Please follow these steps:
 
 Please ensure your code follows the project's style guidelines and includes tests where applicable.
 
-> **CRITICAL:** All important architectural decisions made by humans or AI agents MUST be recorded in [memory.md](file:///memory.md) to provide context for future development. Any agent behavioral rules must be added to [agent.md](file:///agent.md).
+> **CRITICAL:** All important architectural decisions made by humans or AI agents MUST be recorded in [memory.md](memory.md) to provide context for future development. Any agent behavioral rules must be added to [agent.md](agent.md).
 
 ---
 

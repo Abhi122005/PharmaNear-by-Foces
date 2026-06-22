@@ -15,8 +15,8 @@ We use `pnpm` as our package manager. Please ensure you have Node.js and `pnpm` 
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/Foces-core/pharmanear.git
-   cd pharmanear
+   git clone https://github.com/Foces-core/PharmaNear-by-Foces.git
+   cd PharmaNear-by-Foces
    ```
 
 2. **Install Dependencies**

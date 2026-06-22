@@ -14,5 +14,5 @@ This document outlines strict behavioral rules for AI Agents assisting with this
 ## 🔗 Required Reading for Architecture & Context
 To avoid duplication, architectural context and deployment information have been moved.
 You **MUST** read the following files before assisting with the codebase:
-- [memory.md](file:///memory.md) - Contains critical architectural decisions, zero-config local dev logic, and known issues.
-- [README.md](file:///README.md) - Contains the Tech Stack, Getting Started guide, and folder structure.
+- [memory.md](memory.md) - Contains critical architectural decisions, zero-config local dev logic, and known issues.
+- [README.md](README.md) - Contains the Tech Stack, Getting Started guide, and folder structure.
