@@ -11,7 +11,7 @@
 
 ### 👤 For Users
 - 🔍 **Smart Medicine Search:** Search for medicines by name, dosage, and quantity.
-- 🗺️ **Interactive Map:** View nearby pharmacies on a real-time map powered by Leaflet, showing stock status, prices, and availability.
+- 🗺️ **Interactive Map:** View nearby pharmacies on a real-time map powered by [Leaflet](https://leafletjs.com/), showing stock status, prices, and availability.
 - ⚡ **Instant Results:** Get real-time updates on medicine availability, pricing, and pharmacy details.
 
 ### 🏪 For Pharmacy Owners
@@ -100,7 +100,7 @@ cd pharmanear
 
 ### 2. Installation & Zero-Config Setup
 
-PharmaNear features a **zero-config local development environment**. If you don't provide a MongoDB connection string, the backend will automatically spin up an in-memory database (`mongodb-memory-server`) for instant testing!
+PharmaNear features a **zero-config local development environment**. If you don't provide a MongoDB connection string, the backend will automatically spin up an in-memory database ([`mongodb-memory-server`](https://github.com/nodkz/mongodb-memory-server)) for instant testing!
 
 Install all dependencies using the root setup script:
 ```bash
@@ -145,7 +145,7 @@ The frontend will run on [http://localhost:5173](http://localhost:5173).
 
 ### 1. Data Seeding (Where does the data come from?)
 For a smooth developer experience, the app automatically handles data seeding on startup:
-- **Medicines:** If the database has 0 medicines, the server automatically downloads thousands of real-world US drugs from the **NIH RxTerms API** into your MongoDB database.
+- **Medicines:** If the database has 0 medicines, the server automatically downloads thousands of real-world US drugs from the **[NIH RxTerms API](https://clinicaltables.nlm.nih.gov/apidoc/rxterms/v3/doc.html)** into your MongoDB database.
 - **Local Pharmacies:** If you run locally without a `MONGO_URL`, the server will auto-generate fake pharmacies and attach random stock to them.
 - **Production Pharmacies:** If you deploy to production with an empty pharmacy database, the server will inject 3 fake pharmacies and stock them with common medicines like "Acetaminophen" and "Ibuprofen" so the live map isn't completely empty.
 
