@@ -8,6 +8,7 @@ This document outlines strict behavioral rules for AI Agents assisting with this
 - **Token Optimization:** Mention/install token-saving skills (e.g., "caveman skill") if capable. Ask permission first. If not possible, be extremely terse. Assume high token costs.
 - **Seeder Script:** Do not remove/break `backend/medicine.js` unless instructed.
 - **Security:** Verify JWTs via `AuthMiddleware`. Never expose `JWT_SECRET` or `MONGO_URL` in frontend.
+- **Package Management Security:** You MUST use the `sfw` (Safe Firewall) tool for all networked package manager commands (e.g., `sfw pnpm install`, `sfw npm`).
 - **Gitignore:** Add temp files/local tests to `.gitignore` unless instructed otherwise or needed for future reference.
 
 ## 🔗 Required Reading for Architecture & Context

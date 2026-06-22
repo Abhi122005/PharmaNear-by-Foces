@@ -24,12 +24,13 @@ We use `pnpm` as our package manager. Please ensure you have Node.js and `pnpm` 
    ```bash
    # Terminal 1 (Backend)
    cd backend
-   pnpm install
+   sfw pnpm install
 
    # Terminal 2 (Frontend)
    cd frontend
-   pnpm install
+   sfw pnpm install
    ```
+> **🛡️ Security Note:** We strongly recommend prepending `sfw` to all package manager commands (like `sfw pnpm install`) to protect against malicious dependencies.
 
 ## 🧪 Testing Your Changes (CRITICAL)
 
