@@ -149,18 +149,18 @@ For a smooth developer experience, the app automatically handles data seeding on
 - **Local Pharmacies:** If you run locally without a `MONGO_URL`, the server will auto-generate fake pharmacies and attach random stock to them.
 - **Production Pharmacies:** If you deploy to production with an empty pharmacy database, the server will inject 3 fake pharmacies and stock them with common medicines like "Acetaminophen" and "Ibuprofen" so the live map isn't completely empty.
 
-### 1. Creating a Pharmacy (Admin Setup)
+### 2. Creating a Pharmacy (Admin Setup)
 To test the admin features locally or on the live site:
 1. Navigate to the **Sign Up** page.
 2. Enter your pharmacy's details (Name, Owner, City, Phone) and create a secure password.
 3. Click **Sign Up**. You will be automatically logged into the Pharmacy Dashboard.
 4. From the dashboard, you can click **Add Medicine** to start building your inventory.
 
-### 2. User Search Testing
+### 3. User Search Testing
 1. Enter a medicine name on the Home page (e.g., a medicine you just added to your pharmacy).
 2. Click **Search Nearby**. The app will map pharmacies holding that stock.
 
-### 3. Map Interaction
+### 4. Map Interaction
 Click on map markers to view pharmacy details, including contact info, opening hours, and stock status.
 
 ---

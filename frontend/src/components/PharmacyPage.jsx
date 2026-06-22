@@ -72,7 +72,6 @@ export default function PharmacyPage() {
       setPrice("");
       setStrength("");
       setError("");
-      window.location.reload();
     } catch (error) {
       setError(error.message)
       if (error.message === 'No token provided') {
@@ -129,7 +128,6 @@ export default function PharmacyPage() {
       );
       setStockItems(updatedStock);
       setEditingItem(null);
-      window.location.reload();
       
     } catch (error) {
       setError(error.message)
@@ -151,7 +149,6 @@ export default function PharmacyPage() {
         
         const token = localStorage.getItem('pharmacy_token');
         if (!token) {
-          throw new Error('No token provided');
           navigate('/login');
           return;
         }
@@ -183,7 +180,6 @@ export default function PharmacyPage() {
         const data = await response.json()
         const updatedStock = stockItems.filter(item => item.id !== id);
         setStockItems(updatedStock);
-        window.location.reload();
         
       } catch (error) {
         setError(error.message)

@@ -136,7 +136,7 @@ app.get("/api/health", (_req, res) => {
       },
     })
   } catch (error) {
-    console.error(err);
+    console.error(error);
     res.status(500).json({
       status: "error",
       uptime: process.uptime(),

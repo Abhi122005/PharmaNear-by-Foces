@@ -168,7 +168,7 @@ function FindMedicine() {
           onClick={handleSearch}
           disabled={loading}
         >
-          {loading ? "Searching ..." : "Serach Nearby"}
+          {loading ? "Searching ..." : "Search Nearby"}
         </button>
         <div className="fm-register">
           <span>Register medicine?</span>

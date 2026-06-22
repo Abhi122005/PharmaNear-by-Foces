@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL || "http://localhost:5000").replace(/\/+$/, "");
 
-function SignupPage({ onSwitchToLogin }) {
+function SignupPage() {
   const [userName, setUserName] = useState('')
   const [owner, setOwner] = useState('')
   const [city, setCity] = useState('')

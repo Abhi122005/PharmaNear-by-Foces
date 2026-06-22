@@ -50,18 +50,19 @@ export default function PharmacyAdmin() {
       return;
     }
     setProfile((p) => ({ ...p, user_name: userName }));
-    fetchProfile();
+    const controller = new AbortController();
+    fetchProfile(controller.signal);
+    return () => controller.abort();
   }, [navigate]);
 
-  async function fetchProfile() {
-    const controller = new AbortController();
+  async function fetchProfile(signal) {
     try {
       setLoadingProfile(true);
       const userName = localStorage.getItem("pharmacy_user_name") || "";
       const token = localStorage.getItem("pharmacy_token") || "";
       const res = await fetch(
         `${BACKEND_URL}/api/pharmacy/profile?user_name=${encodeURIComponent(userName)}`, {
-          signal: controller.signal,
+          signal,
           headers: {
             'Authorization': `Bearer ${token}`,
           },
@@ -84,15 +85,16 @@ export default function PharmacyAdmin() {
         location_url: data.location_url || "",
       }));
     } catch (e) {
-      console.error("Failed to load profile:", e);
-      if (e.message.includes('401') || e.message.includes('403')) {
-        localStorage.clear();
-        navigate('/login');
+      if (e.name !== 'AbortError') {
+        console.error("Failed to load profile:", e);
+        if (e.message.includes('401') || e.message.includes('403')) {
+          localStorage.clear();
+          navigate('/login');
+        }
       }
     } finally {
       setLoadingProfile(false);
     }
-    return () => controller.abort();
   }
 
   async function saveProfile() {
