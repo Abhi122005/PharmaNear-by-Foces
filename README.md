@@ -93,30 +93,70 @@ PharmaNear/
 
 ## 🚀 Getting Started
 
-For detailed installation and setup instructions, please see:
+Follow these steps to set up and run the project locally.
 
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Complete local development setup, testing, and contribution guidelines
-- **[frontend/README.md](frontend/README.md)** - Frontend-specific setup and configuration
-- **[backend/README.md](backend/README.md)** - Backend-specific setup and configuration
+### Prerequisites
 
-### Quick Start
+- **Node.js** (v18 or higher) - [Download here](https://nodejs.org/) _(New? Watch a [YouTube Guide](https://www.youtube.com/watch?v=EIJeLiaGfA0))_
+- **MongoDB** (Optional) - The app uses an in-memory DB locally, but you can use [MongoDB Atlas](https://www.mongodb.com/atlas) for production/cloud setups.
+- **Git** - [Download here](https://git-scm.com/)
+
+### 1. Clone the Repository
 
 ```bash
-# Clone the repository
 git clone https://github.com/Foces-core/PharmaNear-by-Foces.git
 cd PharmaNear-by-Foces
-
-# Install all dependencies
-pnpm install:all
-
-# Start backend (in one terminal)
-cd backend && pnpm start
-
-# Start frontend (in another terminal)
-cd frontend && pnpm dev
 ```
 
-The application will be available at [http://localhost:5173](http://localhost:5173).
+### 2. Installation & Zero-Config Setup
+
+PharmaNear features a **zero-config local development environment**. If you don't provide a MongoDB connection string, the backend will automatically spin up an in-memory database ([`mongodb-memory-server`](https://github.com/nodkz/mongodb-memory-server)) for instant testing!
+
+Install all dependencies using the root setup script:
+
+```bash
+pnpm install:all
+```
+
+> **⚠️ CRITICAL for pnpm v10+ users:** Newer versions of `pnpm` block package build scripts for security. You **must** approve them for the database and frontend to build:
+>
+> 1. Run `pnpm approve-builds` in the `frontend` folder (Press `a` then `Enter`).
+> 2. Run `pnpm approve-builds` in the `backend` folder (Press `a` then `Enter`).
+
+> **🛡️ Additional Security (Highly Recommended):** To protect yourself against malicious dependencies, we strongly recommend using the [`sfw` (Socket Firewall) tool](https://github.com/SocketDev/sfw-free) for all package manager commands. Whenever you run a networked installation, simply prepend your command with `sfw` (e.g., run `sfw pnpm install:all` instead of `pnpm install:all`).
+
+### 3. Environment Variables (Optional for Local Dev)
+
+If you want to connect to a real MongoDB Atlas database, create `.env` files in the `frontend/` and `backend/` directories based on the `.env.example` templates.
+
+Otherwise, just skip this step—the app works completely out of the box!
+
+### 4. Backend Setup
+
+In a different terminal:
+
+```bash
+cd backend
+pnpm start
+```
+
+The backend will run on [http://localhost:5000](http://localhost:5000).
+
+### 5. Frontend Setup
+
+Open a new terminal and run:
+
+```bash
+cd frontend
+pnpm dev
+```
+
+The frontend will run on [http://localhost:5173](http://localhost:5173).
+
+### 6. Access the Application
+
+- Open [http://localhost:5173](http://localhost:5173) in your browser.
+- For pharmacy admin features, sign up or log in as a pharmacy owner.
 
 ---
 
@@ -152,9 +192,24 @@ Click on map markers to view pharmacy details, including contact info, opening h
 
 ## 🌍 Environment Variables
 
-Environment variable templates are provided in [`.env.example`](.env.example). Copy this file to create your `.env` files in both `frontend/` and `backend/` directories.
+Create `.env` files in both `backend` and `frontend` using these keys:
 
-For detailed configuration options, see the [`.env.example`](.env.example) file.
+### `backend/.env`
+
+| Variable      | Description                                                                 |
+| ------------- | --------------------------------------------------------------------------- |
+| `PORT`        | The port the Node.js server runs on (Default: 5000)                         |
+| `MONGO_URL`   | Your MongoDB Atlas connection string                                        |
+| `JWT_SECRET`  | A secure, random string for signing authentication tokens                   |
+| `CORS_ORIGIN` | The URL allowed to make API requests (e.g., `http://localhost:5173` or `*`) |
+
+### `frontend/.env`
+
+| Variable           | Description                                                                        |
+| ------------------ | ---------------------------------------------------------------------------------- |
+| `VITE_BACKEND_URL` | The URL of your live backend API. If blank, it defaults to `http://localhost:5000` |
+
+> See [`.env.example`](.env.example) for a complete template with comments.
 
 ## 🛠️ Common Troubleshooting
 
