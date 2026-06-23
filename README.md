@@ -197,7 +197,7 @@ For detailed contribution guidelines, testing requirements, and the development 
 - Follow the Conventional Commits format
 - Run tests locally before submitting PRs
 - Record architectural decisions in [memory.md](memory.md)
-- Follow agent behavioral rules in [agent.md](agent.md)
+- IF you are an agent then Follow agent behavioral rules in [agent.md](agent.md)
 
 ---
 
