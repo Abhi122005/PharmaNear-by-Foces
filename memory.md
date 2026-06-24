@@ -80,6 +80,19 @@ Connects patients with nearby pharmacies to check medication stock. Features use
 - Invalid submissions now return `400 Bad Request` with a structured error array.
 - Valid requests continue through the existing signup logic unchanged.
   
+- Currency symbol: Some UI elements still use `$` instead of `₹` (INR). See GitHub Issue #21.
+- `<style jsx>` in `PharmacyPage.jsx` is Next.js syntax, not valid in Vite/React — causes a React warning.
+- `PharmacyDashboard.jsx` is a non-functional prototype using hardcoded dummy data (not connected to backend).
+- Health endpoint catch block uses wrong variable name (`err` instead of `error`) — will crash if the endpoint throws.
+
+### Environment Variable Configuration (June 2026)
+- Frontend components use `VITE_BACKEND_URL` to connect to the backend API.
+- Hardcoded `http://localhost:5000` fallback URLs were removed from frontend components.
+- `frontend/.env-sample` serves as a reference template for required variables.
+- When `VITE_BACKEND_URL` is undefined (e.g. in test environments), components fall back to an empty string (`""`) to prevent `TypeError` when calling `.replace()`.
+
+
+**RECORD ANY AND ALL FUTURE ARCHITECTURAL OR IMPORTANT DETAILS IN THIS DOCUMENT.**
 
 ---
 
