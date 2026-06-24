@@ -65,8 +65,17 @@ Connects patients with nearby pharmacies to check medication stock. Features use
 
 - Contributors must only work on issues explicitly assigned to them by a maintainer.
 - Enforced via `CONTRIBUTING.md`, `agent.md`, PR template checklist, and issue template warnings.
+
+### Signup Input Validation (June 2026)
+
+- Added Zod v3 as a validation dependency in the backend.
+- Defined a `signupSchema` at the top of `server.js` using `z.object()`.
+- Validated the signup fields `name`, `owner`, `city`, `phone_number`, and `password`.
+- Enforced `phone_number` to contain digits only and be exactly 10 characters long.
+- Enforced `password` to be at least 8 characters long.
+- Invalid submissions now return `400 Bad Request` with a structured error array.
+- Valid requests continue through the existing signup logic unchanged.
   
-**RECORD ANY AND ALL FUTURE ARCHITECTURAL OR IMPORTANT DETAILS IN THIS DOCUMENT.**
 
 ---
 

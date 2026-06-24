@@ -161,6 +161,26 @@ app.post("/api/pharmacy/signup", authLimiter, async (req, res) => {
       return res.status(400).json({ message: "Invalid Entry" });
     }
 
+    if (password.length < 8) {
+      return res.status(400).json({
+        error: "Validation failed",
+        details: [{ field: "password", message: "Password must be at least 8 characters" }]
+      });
+    }
+
+    if (!/^\d+$/.test(phone_number)) {
+      return res.status(400).json({
+        error: "Validation failed",
+        details: [{ field: "phone_number", message: "Phone number must contain only digits" }]
+      });
+    }
+
+    if (phone_number.length !== 10) {
+      return res.status(400).json({
+        error: "Validation failed",
+        details: [{ field: "phone_number", message: "Phone number must be exactly 10 digits" }]
+      });
+    }
     // Check if user already exists
     const existingPharmacy = await Pharmacy.findOne({ user_name });
     if (existingPharmacy) {
