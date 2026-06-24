@@ -36,4 +36,5 @@ Closes #
 - [ ] I am assigned to the linked issue(s).
 - [ ] I have tested these changes locally.
 - [ ] I have run `pnpm run test` and all tests pass.
+- [ ] My code uses standard LF (Unix-style) line endings.
 - [ ] My commit messages follow the Conventional Commits format.
