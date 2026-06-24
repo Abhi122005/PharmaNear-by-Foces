@@ -193,11 +193,13 @@ Click on map markers to view pharmacy details, including contact info, opening h
 
 ---
 
-## 🌍 Environment Variables (Optional for Local Dev)
+## 🌍 Environment Variables
 
 **For local development, you can skip this step entirely**—the app works out of the box with an in-memory database and default settings.
 
-If you want to connect to a real MongoDB Atlas database or customize settings, create `.env` files in both `backend` and `frontend` using these keys:
+However, **for production deployment, you MUST configure these variables** to ensure security and proper functionality.
+
+If you want to connect to a real MongoDB Atlas database or deploy to production, create `.env` files in both `backend` and `frontend` using these keys:
 
 ### `backend/.env`
 
@@ -205,8 +207,10 @@ If you want to connect to a real MongoDB Atlas database or customize settings, c
 | ------------- | --------------------------------------------------------------------------- |
 | `PORT`        | The port the Node.js server runs on (Default: 5000)                         |
 | `MONGO_URL`   | Your MongoDB Atlas connection string                                        |
-| `JWT_SECRET`  | A secure, random string for signing authentication tokens                   |
+| `JWT_SECRET`  | **REQUIRED for production.** A secure, random string for signing authentication tokens. Falls back to an insecure default key in local dev, but this MUST be overridden in production to prevent security vulnerabilities. |               |
 | `CORS_ORIGIN` | The URL allowed to make API requests (e.g., `http://localhost:5173` or `*`) |
+
+> ⚠️ **Security Note:** The `JWT_SECRET` has a fallback value for local development convenience. **Never deploy to production without setting a custom `JWT_SECRET`**, as the fallback key is publicly visible in the source code and can be exploited.
 
 ### `frontend/.env`
 

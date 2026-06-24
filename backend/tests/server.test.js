@@ -4,14 +4,12 @@ import app, { mongoServerInstance } from "../server.js";
 import Medicine from "../models/medicine.js";
 import Pharmacy from "../models/pharmacy.js";
 import Stock from "../models/stock.js";
-
 describe("PharmaNear Full Integration Test Suite", () => {
   let token;
   let otherToken;
   let pharmacyId;
   let otherPharmacyId;
   let testMedicineId;
-
   const mockPharmacy = {
     user_name: "test_pharma",
     owner_name: "Test Owner",
@@ -19,7 +17,6 @@ describe("PharmaNear Full Integration Test Suite", () => {
     phone_number: "9999999999",
     password: "testpassword"
   };
-
   const otherPharmacy = {
     user_name: "other_pharma",
     owner_name: "Other Owner",
@@ -27,14 +24,12 @@ describe("PharmaNear Full Integration Test Suite", () => {
     phone_number: "8888888888",
     password: "otherpassword"
   };
-
   beforeAll(async () => {
     // Wait until mongoose has established database connection
     if (mongoose.connection.readyState !== 1) {
       await new Promise((resolve) => mongoose.connection.once("open", resolve));
     }
   });
-
   afterAll(async () => {
     // Cleanup database collections
     await Pharmacy.deleteMany({});
