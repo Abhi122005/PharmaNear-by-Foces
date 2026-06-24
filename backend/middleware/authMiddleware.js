@@ -1,6 +1,10 @@
 import jwt from 'jsonwebtoken'
 
-const JWT_SECRET = process.env.JWT_SECRET || "fallback_local_secret_key";
+const JWT_SECRET = process.env.JWT_SECRET || (process.env.NODE_ENV !== "production" ? "fallback_local_secret_key" : null);
+
+if (!JWT_SECRET) {
+    throw new Error("FATAL: JWT_SECRET is required in production but is missing from environment variables.");
+}
 export const AuthMiddleware = (req, res, next) => {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];

@@ -98,6 +98,11 @@ Connects patients with nearby pharmacies to check medication stock. Features use
 - **ESM note:** All local imports must include the `.js` extension (e.g., `import Medicine from "../models/medicine.js"`) — omitting it causes `ERR_MODULE_NOT_FOUND` in Node.js ESM mode.
 - No breaking changes to existing API endpoints or database models.
 
+### Environment Variables & JWT Fallback (June 2026)
+- `backend/.env.example` documents all required environment variables.
+- `JWT_SECRET` is optional for local development (falls back to a hardcoded string) but **MUST** be set in production to prevent security vulnerabilities.
+- `MONGO_URL` is optional for local development (triggers in-memory MongoDB) but required for production.
+
 **RECORD ANY AND ALL FUTURE ARCHITECTURAL OR IMPORTANT DETAILS IN THIS DOCUMENT.**
 
 ---
