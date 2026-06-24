@@ -1,6 +1,6 @@
 # Contributing to PharmaNear
 
-> **⚠️ CAUTION:** This repository is currently exclusively for contributions from participants in the Season of Code event by Google Developers Group (GDG). In the future, others might be allowed to contribute, but right now it is restricted to participants only.
+> **⚠️ CAUTION:** This repository is currently exclusively for contributions from registered student participants of **College of Engineering Chengannur (CEC)** in the Season of Code event by Google Developers Group (GDG). External pull requests and issue assignment requests will be closed.
 
 **⚠️ IMPORTANT: You must ONLY work on an issue if it has been explicitly assigned to you.**
 
