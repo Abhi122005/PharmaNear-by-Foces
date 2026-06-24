@@ -70,20 +70,6 @@ Connects patients with nearby pharmacies to check medication stock. Features use
 - Contributors must only work on issues explicitly assigned to them by a maintainer.
 - Enforced via `CONTRIBUTING.md`, `agent.md`, PR template checklist, and issue template warnings.
 
-### Signup Input Validation (June 2026)
-
-- Added Zod v3 as a validation dependency in the backend.
-- Defined a `signupSchema` at the top of `server.js` using `z.object()`.
-- Validated the signup fields `name`, `owner`, `city`, `phone_number`, and `password`.
-- Enforced `phone_number` to contain digits only and be exactly 10 characters long.
-- Enforced `password` to be at least 8 characters long.
-- Invalid submissions now return `400 Bad Request` with a structured error array.
-- Valid requests continue through the existing signup logic unchanged.
-  
-- Currency symbol: Some UI elements still use `$` instead of `₹` (INR). See GitHub Issue #21.
-- `<style jsx>` in `PharmacyPage.jsx` is Next.js syntax, not valid in Vite/React — causes a React warning.
-- `PharmacyDashboard.jsx` is a non-functional prototype using hardcoded dummy data (not connected to backend).
-- Health endpoint catch block uses wrong variable name (`err` instead of `error`) — will crash if the endpoint throws.
 
 ### Environment Variable Configuration (June 2026)
 - Frontend components use `VITE_BACKEND_URL` to connect to the backend API.
