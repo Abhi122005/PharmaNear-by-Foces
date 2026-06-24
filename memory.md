@@ -78,8 +78,14 @@ Connects patients with nearby pharmacies to check medication stock. Features use
 - When `VITE_BACKEND_URL` is undefined (e.g. in test environments), components fall back to an empty string (`""`) to prevent `TypeError` when calling `.replace()`.
 
 
-**RECORD ANY AND ALL FUTURE ARCHITECTURAL OR IMPORTANT DETAILS IN THIS DOCUMENT.**
 
+- Validation added directly in server.js signup handler (no new dependencies)
+- phone_number: digits only via regex /^\d+$/, exactly 10 characters
+- password: minimum 8 characters
+- Invalid input returns 400 with structured error array: { error, details: [{ field, message }] }
+- Valid registrations proceed unchanged
+  
+**RECORD ANY AND ALL FUTURE ARCHITECTURAL OR IMPORTANT DETAILS IN THIS DOCUMENT.**
 ---
 
 ## 🔗 Related Documentation
