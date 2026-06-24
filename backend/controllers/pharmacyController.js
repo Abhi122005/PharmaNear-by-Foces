@@ -106,6 +106,11 @@ export const login = async (req,res) => {
     );
 
     console.log("Login successful, sending response");
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: false,
+      sameSite: "strict",
+    });
     res.json({
       message: "Pharmacy logged in successfully",
       token,

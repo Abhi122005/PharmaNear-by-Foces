@@ -1,6 +1,7 @@
 import request from "supertest";
 import mongoose from "mongoose";
-import app, { mongoServerInstance } from "../server.js";
+import app from "../server.js";
+import { mongoServerInstance } from "../config/db.js";
 import Medicine from "../models/medicine.js";
 import Pharmacy from "../models/pharmacy.js";
 import Stock from "../models/stock.js";
