@@ -119,7 +119,8 @@ Examples:
 5. Fill out the PR template completely. Link the issue your PR resolves (e.g., "Closes #42").
    - **Environment Variables**: If your PR introduces new environment variables, you must list them clearly in the designated section of the PR template.
 6. **Update `.env.example` Templates**: If your changes require new environment variables, you must add them to the relevant `.env.example` file(s) (in the root, `backend/`, or `frontend/` folders) with appropriate dummy values and brief comments explaining their purpose.
-7. Await review from maintainers or automated reviewing tools and ensure any requested changes are made.
+7. **Monitor and Fix Automated Workflow Checks**: Once you open a PR, GitHub Actions will run automated linting and tests. You MUST monitor these status checks. If a check fails (red X), click on "Details" to read the error logs, fix the issues locally, and push your updates. **Do not ask for a review until all CI workflow checks are completely green (passing).**
+8. Await review from maintainers and ensure any requested changes are made.
 
 ## 🧹 Preventing Noisy PRs (PR Cleanliness)
 
