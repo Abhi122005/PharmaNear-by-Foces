@@ -137,6 +137,14 @@ To ensure that pull requests are easy to review, please adhere to the following 
 4. **Line Ending Consistency**:
    - Configure your editor to use `LF` (Unix) line endings. If your editor automatically converts files to `CRLF` (Windows) on save, it will mark the entire file as modified in Git, causing unnecessary diff noise.
 
+## 💬 Communication Etiquette (No @ Mentions)
+
+To maintain a healthy development environment and respect the maintainers' focus and time, please adhere to standard **FOSS (Free and Open Source Software) etiquette** regarding notifications:
+
+* **Do NOT `@` mention maintainers** directly in issues, pull requests, or comments unless it is a critical emergency (e.g., a major security vulnerability or if the live production deployments are completely down).
+* **Why this is important**: Maintainers receive a large volume of notifications and manage open-source projects in their free time. Unneeded direct mentions generate constant interruptions and notification fatigue, which slows down development.
+* Rest assured that all pull requests, issues, and comments are tracked and will be reviewed in due course.
+
 ## 🏛️ Architecture Goals & Memory
 
 - If you are contributing to the backend, please note that we are actively trying to migrate away from a monolithic `server.js` file toward a strict MVC pattern (`routes/`, `controllers/`, `middleware/`). If your PR helps us move toward that goal, we will love you forever! Here is how we define the components:
