@@ -1,6 +1,6 @@
 # Contributing to PharmaNear
 
-> **⚠️ CAUTION:** This repository is currently exclusively for contributions from participants in the Season of Code event by Google Developers Group (GDG). In the future, others might be allowed to contribute, but right now it is restricted to participants only.
+> **⚠️ CAUTION:** This repository is currently exclusively for contributions from registered student participants of **College of Engineering Chengannur (CEC)** in the Season of Code event by Google Developers Group (GDG). External pull requests and issue assignment requests will be closed.
 
 **⚠️ IMPORTANT: You must ONLY work on an issue if it has been explicitly assigned to you.**
 
@@ -117,7 +117,36 @@ Examples:
 3. Run the tests locally using `pnpm run test` and ensure they pass.
 4. Push your branch and open a Pull Request targeting the `main` branch.
 5. Fill out the PR template completely. Link the issue your PR resolves (e.g., "Closes #42").
-6. Await review from maintainers or automated reviewing tools and make any requested changes are made.
+   - **Environment Variables**: If your PR introduces new environment variables, you must list them clearly in the designated section of the PR template.
+6. **Update `.env.example` Templates**: If your changes require new environment variables, you must add them to the relevant `.env.example` file(s) (in the root, `backend/`, or `frontend/` folders) with appropriate dummy values and brief comments explaining their purpose.
+7. **Monitor and Fix Automated Workflow Checks**: Once you open a PR, GitHub Actions will run automated linting and tests. You MUST monitor these status checks. If a check fails (red X), click on "Details" to read the error logs, fix the issues locally, and push your updates. **Do not ask for a review until all CI workflow checks are completely green (passing).**
+8. Await review from maintainers and ensure any requested changes are made.
+
+## 🧹 Preventing Noisy PRs (PR Cleanliness)
+
+To ensure that pull requests are easy to review, please adhere to the following rules:
+
+1. **Do Not Auto-Format Unrelated Code**:
+   - Do **NOT** run automatic code formatters (like Prettier, ESLint `--fix`, or editor-specific auto-formatters) on entire files if you are only editing a few lines.
+   - Forcing style changes on lines of code you are not working on generates huge diffs with hundreds of lines of whitespace/style changes. This makes it extremely difficult for maintainers to spot the actual logic changes.
+   - **Tip**: Configure your IDE to "Format Selection" or "Format Modified Lines Only" instead of "Format on Save" for the entire document.
+
+2. **No Dead or Debug Code**:
+   - Clean up all temporary debugging statement(s) (e.g., `console.log`, `print`, or debug comments), commented-out blocks of code, or unused imports/variables before opening your PR.
+
+3. **Keep PRs Single-focused**:
+   - A pull request should do one thing. If you notice unrelated bugs or refactoring opportunities, please open a separate issue and PR for them. Do not bundle unrelated changes together.
+
+4. **Line Ending Consistency**:
+   - Configure your editor to use `LF` (Unix) line endings. If your editor automatically converts files to `CRLF` (Windows) on save, it will mark the entire file as modified in Git, causing unnecessary diff noise.
+
+## 💬 Communication Etiquette (No @ Mentions)
+
+To maintain a healthy development environment and respect the maintainers' focus and time, please adhere to standard **FOSS (Free and Open Source Software) etiquette** regarding notifications:
+
+* **Do NOT `@` mention maintainers** directly in issues, pull requests, or comments unless it is a critical emergency (e.g., a major security vulnerability or if the live production deployments are completely down).
+* **Why this is important**: Maintainers receive a large volume of notifications and manage open-source projects in their free time. Unneeded direct mentions generate constant interruptions and notification fatigue, which slows down development.
+* Rest assured that all pull requests, issues, and comments are tracked and will be reviewed in due course.
 
 ## 🧹 Preventing Noisy PRs (PR Cleanliness)
 

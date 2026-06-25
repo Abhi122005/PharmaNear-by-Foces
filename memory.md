@@ -70,6 +70,12 @@ Connects patients with nearby pharmacies to check medication stock. Features use
 - Contributors must only work on issues explicitly assigned to them by a maintainer.
 - Enforced via `CONTRIBUTING.md`, `agent.md`, PR template checklist, and issue template warnings.
 
+## 📝 Known Issues
+
+- Currency symbol: Some UI elements still use `$` instead of `₹` (INR). See GitHub Issue #21.
+- `<style jsx>` in `PharmacyPage.jsx` is Next.js syntax, not valid in Vite/React — causes a React warning.
+- `PharmacyDashboard.jsx` is a non-functional prototype using hardcoded dummy data (not connected to backend).
+- Health endpoint catch block uses wrong variable name (`err` instead of `error`) — will crash if the endpoint throws.
 
 ### Environment Variable Configuration (June 2026)
 - Frontend components use `VITE_BACKEND_URL` to connect to the backend API.
@@ -77,14 +83,26 @@ Connects patients with nearby pharmacies to check medication stock. Features use
 - `frontend/.env-sample` serves as a reference template for required variables.
 - When `VITE_BACKEND_URL` is undefined (e.g. in test environments), components fall back to an empty string (`""`) to prevent `TypeError` when calling `.replace()`.
 
+### Backend Modularization Refactor (June 2026)
+- `server.js` was refactored from a single monolithic file into a modular folder structure for maintainability and scalability.
+- **New structure introduced:**
+  - `config/db.js` — Database connection logic extracted from `server.js`
+  - `routes/pharmacyRoutes.js` — Pharmacy auth and profile routes
+  - `routes/stockRoutes.js` — Stock CRUD routes
+  - `routes/drugRoutes.js` — Drug search route
+  - `controllers/pharmacyController.js` — Pharmacy business logic
+  - `controllers/stockController.js` — Stock business logic
+  - `controllers/drugController.js` — Drug search logic
+  - `middleware/authMiddleware.js` — JWT authentication middleware extracted from `server.js`
+- `server.js` is now responsible only for app initialization, middleware setup, and route mounting.
+- **ESM note:** All local imports must include the `.js` extension (e.g., `import Medicine from "../models/medicine.js"`) — omitting it causes `ERR_MODULE_NOT_FOUND` in Node.js ESM mode.
+- No breaking changes to existing API endpoints or database models.
 
+### Environment Variables & JWT Fallback (June 2026)
+- `backend/.env.example` documents all required environment variables.
+- `JWT_SECRET` is optional for local development (falls back to a hardcoded string) but **MUST** be set in production to prevent security vulnerabilities.
+- `MONGO_URL` is optional for local development (triggers in-memory MongoDB) but required for production.
 
-- Validation added directly in server.js signup handler (no new dependencies)
-- phone_number: digits only via regex /^\d+$/, exactly 10 characters
-- password: minimum 8 characters
-- Invalid input returns 400 with structured error array: { error, details: [{ field, message }] }
-- Valid registrations proceed unchanged
-  
 **RECORD ANY AND ALL FUTURE ARCHITECTURAL OR IMPORTANT DETAILS IN THIS DOCUMENT.**
 ---
 

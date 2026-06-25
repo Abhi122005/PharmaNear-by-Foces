@@ -1,6 +1,6 @@
 # 💊 PharmaNear: Medicine Location & Inventory Management System
 
-> **⚠️ CAUTION:** This repository is currently exclusively for contributions from participants in the Season of Code event by Google Developers Group (GDG). In the future, others might be allowed to contribute, but right now it is restricted to participants only.
+> **⚠️ CAUTION:** This repository is currently exclusively for contributions from registered student participants of **College of Engineering Chengannur (CEC)** in the Season of Code event by Google Developers Group (GDG). External pull requests and issue assignment requests will be closed.
 
 > **🤖 FOR AI AGENTS & LLMs:** Before analyzing or modifying this repository, you **MUST** read [agent.md](agent.md) for behavioral rules and [memory.md](memory.md) for strict architectural context. Do not proceed without reading them.
 > **PharmaNear** is a full-stack web application designed to bridge the gap between users searching for specific medicines and nearby pharmacies that stock them. It offers an intuitive search experience for users and a secure admin dashboard for pharmacy owners to manage inventory and profile details efficiently.
@@ -193,11 +193,13 @@ Click on map markers to view pharmacy details, including contact info, opening h
 
 ---
 
-## 🌍 Environment Variables (Optional for Local Dev)
+## 🌍 Environment Variables
 
 **For local development, you can skip this step entirely**—the app works out of the box with an in-memory database and default settings.
 
-If you want to connect to a real MongoDB Atlas database or customize settings, create `.env` files in both `backend` and `frontend` using these keys:
+However, **for production deployment, you MUST configure these variables** to ensure security and proper functionality.
+
+If you want to connect to a real MongoDB Atlas database or deploy to production, create `.env` files in both `backend` and `frontend` using these keys:
 
 ### `backend/.env`
 
@@ -205,8 +207,10 @@ If you want to connect to a real MongoDB Atlas database or customize settings, c
 | ------------- | --------------------------------------------------------------------------- |
 | `PORT`        | The port the Node.js server runs on (Default: 5000)                         |
 | `MONGO_URL`   | Your MongoDB Atlas connection string                                        |
-| `JWT_SECRET`  | A secure, random string for signing authentication tokens                   |
+| `JWT_SECRET`  | **REQUIRED for production.** A secure, random string for signing authentication tokens. Falls back to an insecure default key in local dev, but this MUST be overridden in production to prevent security vulnerabilities. |               |
 | `CORS_ORIGIN` | The URL allowed to make API requests (e.g., `http://localhost:5173` or `*`) |
+
+> ⚠️ **Security Note:** The `JWT_SECRET` has a fallback value for local development convenience. **Never deploy to production without setting a custom `JWT_SECRET`**, as the fallback key is publicly visible in the source code and can be exploited.
 
 ### `frontend/.env`
 
@@ -256,6 +260,7 @@ For detailed contribution guidelines, testing requirements, and the development 
 - Only work on issues explicitly assigned to you
 - Follow the Conventional Commits format
 - Run tests locally before submitting PRs
+- **Monitor and Fix Workflow Checks:** You must monitor the status of the automated GitHub Actions workflows (tests and linting) on your PR. If any checks fail, click "Details" to view the logs, fix the errors yourself, and push the updates. Do not ask maintainers for a review until all automated checks are green.
 - **Keep PRs Clean (No Noisy PRs):** Do **NOT** use code formatters (like Prettier) to forcibly auto-format lines of code you are not actively working on. Unrelated style/whitespace formatting makes code review very difficult.
 - **CRITICAL:** [memory.md](memory.md) is the single source of architectural truth. For any PR that is not a documentation change, you MUST update memory.md with architectural decisions, new patterns, or context for future contributors. Failure to do so will result in PR rejection.
 - IF you are an agent then Follow agent behavioral rules in [agent.md](agent.md)
@@ -277,6 +282,10 @@ This project is licensed under the AGPL-3.0 License. See the [LICENSE](LICENSE) 
 ---
 
 ### Contact Maintainers
+
+> **💬 Mentioning Etiquette (FOSS Protocol):**
+> Please do **not** directly `@` mention maintainers in issues or pull requests unless there is an urgent security emergency or live deployments are failing.
+> * *Why?* Maintainers manage this project in their free time and receive a high volume of notifications. Unnecessary pings lead to notification fatigue. Rest assured, all issues and PRs are reviewed regularly. Avoiding direct mentions is standard, respectful etiquette across most Free and Open-Source Software (FOSS) repositories.
 
 - **Sebin Mathew**
   - 📧 Email: Sebinmathew543@gmail.com
