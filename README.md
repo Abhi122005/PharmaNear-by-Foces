@@ -258,6 +258,8 @@ For detailed contribution guidelines, testing requirements, and the development 
 
 **Key points:**
 - Only work on issues explicitly assigned to you
+- **No Direct Pushes:** Direct pushes to `main` are blocked. All updates must go through Pull Requests.
+- **Avoid Force-Pushing:** Do not force-push (`git push --force`) once a review has started. Push standard commits on top of your branch instead.
 - Follow the Conventional Commits format
 - Run tests locally before submitting PRs
 - **Monitor and Fix Workflow Checks:** You must monitor the status of the automated GitHub Actions workflows (tests and linting) on your PR. If any checks fail, click "Details" to view the logs, fix the errors yourself, and push the updates. Do not ask maintainers for a review until all automated checks are green.

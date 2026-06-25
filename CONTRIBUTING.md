@@ -140,6 +140,25 @@ To ensure that pull requests are easy to review, please adhere to the following 
 4. **Line Ending Consistency**:
    - Configure your editor to use `LF` (Unix) line endings. If your editor automatically converts files to `CRLF` (Windows) on save, it will mark the entire file as modified in Git, causing unnecessary diff noise.
 
+5. **Avoid Force-Pushing (`git push --force` or `--force-with-lease`) after review starts**:
+   - **Why**: Force-pushing overwrites the commit history on GitHub. This deletes previous review comments, breaks the feedback history, and forces maintainers to re-review the entire PR from scratch instead of just seeing your incremental fixes.
+   - **The Practice**: Simply push standard commits on top of your existing branch to address feedback. We will squash-merge your commits into a single clean commit when merging anyway.
+
+6. **Rebasing on `main` for Conflict Resolution**:
+   - If your branch falls behind the latest updates on `main` or runs into merge conflicts, you should rebase your branch on `main` locally:
+     ```bash
+     git checkout main
+     git pull origin main
+     git checkout your-feature-branch
+     git rebase main
+     # Resolve any conflicts locally, then:
+     git add <resolved-files>
+     git rebase --continue
+     ```
+
+7. **Direct Pushes to `main` are Blocked**:
+   - The `main` branch is protected by GitHub rulesets. Direct pushes to `main` will be rejected by the server. All contributions must go through a pull request and receive at least **1 approving review** from a maintainer before integration.
+
 ## 💬 Communication Etiquette (No @ Mentions)
 
 To maintain a healthy development environment and respect the maintainers' focus and time, please adhere to standard **FOSS (Free and Open Source Software) etiquette** regarding notifications:
@@ -147,24 +166,6 @@ To maintain a healthy development environment and respect the maintainers' focus
 * **Do NOT `@` mention maintainers** directly in issues, pull requests, or comments unless it is a critical emergency (e.g., a major security vulnerability or if the live production deployments are completely down).
 * **Why this is important**: Maintainers receive a large volume of notifications and manage open-source projects in their free time. Unneeded direct mentions generate constant interruptions and notification fatigue, which slows down development.
 * Rest assured that all pull requests, issues, and comments are tracked and will be reviewed in due course.
-
-## 🧹 Preventing Noisy PRs (PR Cleanliness)
-
-To ensure that pull requests are easy to review, please adhere to the following rules:
-
-1. **Do Not Auto-Format Unrelated Code**:
-   - Do **NOT** run automatic code formatters (like Prettier, ESLint `--fix`, or editor-specific auto-formatters) on entire files if you are only editing a few lines.
-   - Forcing style changes on lines of code you are not working on generates huge diffs with hundreds of lines of whitespace/style changes. This makes it extremely difficult for maintainers to spot the actual logic changes.
-   - **Tip**: Configure your IDE to "Format Selection" or "Format Modified Lines Only" instead of "Format on Save" for the entire document.
-
-2. **No Dead or Debug Code**:
-   - Clean up all temporary debugging statement(s) (e.g., `console.log`, `print`, or debug comments), commented-out blocks of code, or unused imports/variables before opening your PR.
-
-3. **Keep PRs Single-focused**:
-   - A pull request should do one thing. If you notice unrelated bugs or refactoring opportunities, please open a separate issue and PR for them. Do not bundle unrelated changes together.
-
-4. **Line Ending Consistency**:
-   - Configure your editor to use `LF` (Unix) line endings. If your editor automatically converts files to `CRLF` (Windows) on save, it will mark the entire file as modified in Git, causing unnecessary diff noise.
 
 ## 🏛️ Architecture Goals & Memory
 
