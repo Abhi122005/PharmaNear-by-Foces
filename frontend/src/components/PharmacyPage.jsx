@@ -430,7 +430,7 @@ export default function PharmacyPage() {
                 </div>
               </div>
             ) : (
-              stockItems.map((item, index) => (
+              stockItems.map((item) => (
                 <div
                   key={item.id}
                   className={`pharmacy-table-row ${isMobile ? "pharmacy-table-row-mobile" : "pharmacy-table-row-desktop"} ${editingItem?.id === item.id ? "pharmacy-table-row-editing" : ""}`}
