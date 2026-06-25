@@ -3,7 +3,7 @@
 > **⚠️ CAUTION:** This repository is currently exclusively for contributions from registered student participants of **College of Engineering Chengannur (CEC)** in the Season of Code event by Google Developers Group (GDG). External pull requests and issue assignment requests will be closed.
 
 > [!IMPORTANT]
-> **Branch Protection Notice:** Direct pushes to the `main` branch are strictly blocked by GitHub branch protection rulesets. All code changes must be submitted via a Pull Request (PR) from a feature/bugfix branch. Before merging, your PR must:
+> **Pull Request Requirements:** All code changes must be submitted via a Pull Request (PR) from a feature or bugfix branch. Before a PR can be merged, it must:
 > 1. Pass all automated workflow checks (such as tests and linting).
 > 2. Receive at least **1 approving review** from a maintainer.
 
@@ -161,8 +161,8 @@ To ensure that pull requests are easy to review, please adhere to the following 
      git rebase --continue
      ```
 
-7. **Direct Pushes to `main` are Blocked**:
-   - The `main` branch is protected by GitHub rulesets. Direct pushes to `main` will be rejected by the server. All contributions must go through a pull request and receive at least **1 approving review** from a maintainer before integration.
+7. **Review and Approvals Required**:
+   - All contributions must go through a pull request and receive at least **1 approving review** from a maintainer before integration.
 
 ## 💬 Communication Etiquette (No @ Mentions)
 
@@ -172,7 +172,7 @@ To maintain a healthy development environment and respect the maintainers' focus
 * **Why this is important**: Maintainers receive a large volume of notifications and manage open-source projects in their free time. Unneeded direct mentions generate constant interruptions and notification fatigue, which slows down development.
 * Rest assured that all pull requests, issues, and comments are tracked and will be reviewed in due course.
 
-## 🏛️ Architecture Goals & Memory
+## 🏛️ Architecture Goals
 
 - If you are contributing to the backend, please note that we are actively trying to migrate away from a monolithic `server.js` file toward a strict MVC pattern (`routes/`, `controllers/`, `middleware/`). If your PR helps us move toward that goal, we will love you forever! Here is how we define the components:
   - **Models (`models/`)**: Mongoose schemas defining the structure of our database documents.
@@ -180,15 +180,3 @@ To maintain a healthy development environment and respect the maintainers' focus
   - **Controllers (`controllers/`)**: Business logic. They receive requests from routes, interact with models, and send responses.
   - **Routes (`routes/`)**: Define the API endpoints and map them to the appropriate controller functions.
   - **Middleware (`middleware/`)**: Authentication (e.g., verifying JWTs) and error handling functions.
-
-## 📝 Architectural Documentation Requirement (CRITICAL)
-
-**[memory.md](memory.md) is the single source of architectural truth for this project.**
-
-For any PR that is **not** a documentation change (i.e., changes to `.md` files), you MUST update `memory.md` with:
-- Architectural decisions made
-- New patterns or approaches introduced
-- Breaking changes or deprecations
-- Context for future contributors
-
-**Failure to update memory.md for non-documentation PRs will result in the PR being rejected.** This ensures that architectural knowledge is centralized and accessible to all contributors.
