@@ -114,12 +114,12 @@ Connects patients with nearby pharmacies to check medication stock. Features use
 - Invalid input returns `400 Bad Request` with structured error array: `{ error, details: [{ field, message }] }`.
 - Valid registrations proceed unchanged through existing flow.
 
-### PharmacyPage Styling Refactor (June 2026)
-- Inline styling in `frontend/src/components/PharmacyPage.jsx` was moved into `frontend/src/components/PharmacyPage.css`.
-- The refactor replaced inline `style={{ ... }}` props with semantic class-based styling for form icons, table layout, loading/empty states, and edit/action buttons.
-- Layout, spacing, and responsive behavior were preserved while making the component easier to maintain.
+### Agent Customization Rules (June 2026)
+- A workspace-scoped customization rules file [AGENTS.md](file:///d:/git%20folder/PharmaNear/.agents/AGENTS.md) is added to the repository.
+- AI coding agents supporting the customizations framework will automatically parse and load the constraints defined in this file (e.g. Conventional Commit PR naming, security protocols, terse responses) directly into their system prompt for all turns.
+- Keeps agent behavior aligned with repository guidelines without manual intervention.
 
 ## 🔗 Related Documentation
 
-- [agent.md](agent.md) - Strict behavioral rules for AI Agents.
-- [README.md](README.md) - Tech Stack, Getting Started guide, and folder structure.
+- [.agents/AGENTS.md](file:///d:/git%20folder/PharmaNear/.agents/AGENTS.md) - Auto-loading workspace customization rules and behavior guidelines for AI agents.
+- [README.md](file:///d:/git%20folder/PharmaNear/README.md) - Tech Stack, Getting Started guide, and folder structure.
