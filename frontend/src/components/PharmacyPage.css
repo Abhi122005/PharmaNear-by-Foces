@@ -272,6 +272,10 @@
   border-bottom: 2px solid #e2e8f0;
 }
 
+.pharmacy-table-header-mobile {
+  display: none;
+}
+
 .pharmacy-table-header-item {
   display: flex;
   align-items: center;
@@ -432,12 +436,18 @@
 }
 
 .edit-form-container {
-  display: contents;
+  display: block;
+  width: 100%;
 }
 
 .pharmacy-table-edit-grid {
-  display: contents;
+  display: grid;
   grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  padding: 6px 0;
 }
 
 .pharmacy-edit-field {
@@ -458,17 +468,26 @@
   justify-content: flex-end;
   align-items: center;
   grid-column: 4;
+  flex-wrap: wrap;
 }
 
 .pharmacy-table-save-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   padding: 8px 16px;
   font-size: 0.8rem;
   background-color: #10b981;
   min-height: auto;
   width: auto;
+  margin-top: 0;
 }
 
 .pharmacy-table-cancel-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 8px 16px;
   font-size: 0.8rem;
   background-color: #f8fafc;
@@ -653,22 +672,30 @@
     border-radius: 8px; /* Smaller border radius on mobile */
   }
   
-  /* This will stack the edit form inputs vertically on mobile */
   .edit-form-container {
-    display: flex; /* Switch to flex for mobile stacking */
+    display: flex;
     flex-direction: column;
-    align-items: stretch; /* Make inputs full width */
-    gap: 10px; /* This adds the vertical gap for mobile */
+    align-items: stretch;
+    gap: 10px;
     width: 100%;
   }
 
-  /* Target the button container specifically on mobile */
-  .edit-form-container > div:last-child {
+  .pharmacy-table-edit-grid {
+    display: flex;
     flex-direction: column;
+    gap: 10px;
+    width: 100%;
   }
 
-  .edit-form-container > div {
-    padding: 0; /* Reset padding for mobile */
+  .pharmacy-table-edit-actions {
+    justify-content: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .pharmacy-table-save-button,
+  .pharmacy-table-cancel-button {
+    width: 100%;
   }
 }
 
