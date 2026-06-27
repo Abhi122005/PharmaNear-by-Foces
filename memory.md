@@ -137,6 +137,10 @@ Connects patients with nearby pharmacies to check medication stock. Features use
 - Added `/api/pharmacy/logout` route to clear httpOnly cookie on logout
 - `pharmacy_user_name` and `pharmacy_id` still stored in localStorage for UI display only
 - Eliminates XSS token theft vulnerability
+### Optimized Drug Search API N+1 Fix (June 2026)
+- Updated `GET /api/drugs` in `drugController.js` to use Mongoose `.populate()`. This returns full pharmacy details directly in the search response, eliminating the need for the frontend to fire multiple `/api/pharmacy/details` requests.
+### API Response Rename (June 2026)
+- For semantic clarity, the populated pharmacy object in the `/api/drugs` response was renamed from `pharmacy_id` to `pharmacy`.
 
 ## 🔗 Related Documentation
 
