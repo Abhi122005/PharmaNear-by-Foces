@@ -1,6 +1,6 @@
 import Medicine from "../models/medicine.js";
 import Stock from "../models/stock.js";
-import Pharmacy from '../models/pharmacy.js';
+
 
 export const searchDrugs = async (req,res) => {
     const medicine_name = req.query.name;
