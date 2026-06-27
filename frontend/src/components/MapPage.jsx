@@ -159,6 +159,7 @@ export default function MapPage() {
               setPharmacies(validPharmacies.length ? validPharmacies : fallbackPharmacies);
             }
             catch(error) {
+              console.error("Error fetching pharmacy details:", error);
               return null
             }
         } else {
