@@ -1,8 +1,8 @@
-import AboutUs from './pages/AboutUs';
-import Services from './pages/Services';
-import Contact from './pages/Contact';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsOfService from './pages/TermsOfService';
+import AboutUs from './components/AboutUs.jsx';
+import Services from './components/Services.jsx';
+import Contact from './components/Contact.jsx';
+import PrivacyPolicy from './components/PrivacyPolicy.jsx';
+import TermsOfService from './components/TermsOfService.jsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import FirstPage from './components/FirstPage.jsx';

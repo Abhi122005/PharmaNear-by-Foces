@@ -1,4 +1,4 @@
-import InfoPage from "./InfoPage";
+import InfoPage from "./InfoPage.jsx";
 
 export default function Services() {
   return (
