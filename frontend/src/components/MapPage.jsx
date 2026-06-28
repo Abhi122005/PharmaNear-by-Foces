@@ -4,8 +4,9 @@ import 'leaflet-routing-machine';
 import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
 import { useEffect, useState } from "react";
 import { MapContainer, Marker, Popup, TileLayer, useMapEvents } from "react-leaflet";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./MapPage.css";
+import Footer from "./Footer";
 
 const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/+$/, "");
 
@@ -289,15 +290,7 @@ export default function MapPage() {
                 </div>
             </main>
 
-      <footer className="fm-footer">
-        <div className="fm-footer-links">
-          <Link to="/about">About Us</Link>
-          <Link to="/services">Services</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/privacy-policy">Privacy Policy</Link>
-          <Link to="/terms-of-service">Terms of Service</Link>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

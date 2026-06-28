@@ -1,7 +1,8 @@
 import { useEffect, useState,useCallback } from "react";
 import { FaArrowLeft, FaMapPin } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./PharmacyAdmin.css";
+import Footer from "./Footer";
 
 const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/+$/, "");
 
@@ -385,15 +386,7 @@ export default function PharmacyAdmin() {
         </div>
       </main>
 
-      <footer className="fm-footer">
-        <div className="fm-footer-links">
-          <Link to="/">About Us</Link>
-          <Link to="/">Services</Link>
-          <Link to="/">Contact</Link>
-          <Link to="/">Privacy Policy</Link>
-          <Link to="/">Terms of Service</Link>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

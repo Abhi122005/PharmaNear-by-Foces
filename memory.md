@@ -148,6 +148,19 @@ Connects patients with nearby pharmacies to check medication stock. Features use
 - Updated `frontend/index.html` with standard `<link>` tags for these assets.
 - **Note:** The original `favicon.png` (512x512) was retained as a fallback for legacy browsers and older bookmarking systems that may still look for the default `/favicon.png` path.
 
+### Reusable Header & Footer Components (June 2026)
+- Introduced reusable `Header.jsx` and `Footer.jsx` under `frontend/src/components/`.
+- Replaced duplicated header and footer markup across applicable frontend pages with reusable components.
+- This refactor reduces code duplication and simplifies future layout updates while preserving existing functionality.
+
+
+### Legal Documentation Enhancement (June 2026)
+
+- Replaced placeholder content in `frontend/src/components/TermsOfService.jsx` with a comprehensive Terms of Service document tailored to PharmaNear.
+- Replaced placeholder content in `frontend/src/components/PrivacyPolicy.jsx` with a detailed Privacy Policy covering data handling, user rights, and platform responsibilities.
+- Updated `frontend/src/components/InfoPage.jsx` to support rendering structured JSX content, enabling legal pages to include section headings, paragraphs, and lists instead of plain text strings.
+- Enhanced `frontend/src/components/InfoPage.css` to improve readability and presentation of legal documents through refined typography, section styling, and responsive layout adjustments.
+- These changes are limited to frontend presentation and content improvements and do not affect existing routes, APIs, or backend behavior.
 ### Secure Exact Medicine Name Matching (June 2026)
 - Updated `updateStock` and `deleteStock` in `backend/controllers/stockController.js` to escape user-supplied `medicine_name` before constructing a regular expression.
 - Changed medicine lookup from loose case-insensitive regex matching to case-insensitive exact-string matching (`^...$`).
