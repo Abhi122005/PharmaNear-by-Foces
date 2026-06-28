@@ -21,11 +21,10 @@ const PharmacyDashboard = React.lazy(() => import('./components/PharmacyDashboar
 
 // A clean loading fallback component
 const LoadingSpinner = () => (
-  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', fontSize: '1.2rem' }}>
+  <div className="loading-spinner-container">
     Loading...
   </div>
 );
-
 function App() {
   return (
     <BrowserRouter>

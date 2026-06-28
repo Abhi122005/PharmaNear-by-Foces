@@ -15,10 +15,9 @@ function FindMedicine() {
   const [loading, setLoading] = useState(false);
 
   // PREFETCH PATTERN: Triggers browser to download MapPage code bundle in the background
+  // PREFETCH PATTERN: Triggers browser to download MapPage code bundle in the background
   const handlePrefetchMap = () => {
-    import("./MapPage.jsx")
-      .then(() => console.log("MapPage bundle prefetched successfully!"))
-      .catch((err) => console.error("Error prefetching MapPage bundle:", err));
+    import("./MapPage.jsx").catch(() => {});
   };
 
   const getLocation = () => {
