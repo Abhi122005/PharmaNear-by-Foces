@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
 import "./PharmacyDashboard.css";
+import Footer from "./Footer";
 
 const initialMedicines = [
   { id: 1, name: "Paracetamol 500mg", batchNo: "A123", expiryDate: "2025-12-31", quantity: 150, price: 5.5, supplier: "Pharma Inc." },
@@ -173,15 +173,7 @@ export default function PharmacyDashboard() {
       </main>
 
       <MedicineModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onSave={handleSave} medicine={editingMedicine} />
-        <footer className="fm-footer">
-          <div className="fm-footer-links">
-            <Link to="/about">About Us</Link>
-            <Link to="/services">Services</Link>
-            <Link to="/contact">Contact</Link>
-            <Link to="/privacy-policy">Privacy Policy</Link>
-            <Link to="/terms-of-service">Terms of Service</Link>
-          </div>
-        </footer>
+        <Footer />
 
     </div>
   );

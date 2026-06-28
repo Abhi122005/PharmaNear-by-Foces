@@ -2,6 +2,8 @@ import { useState } from "react";
 import { FaCapsules, FaSearch, FaSortNumericUp } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import "./FirstPage.css";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL || "").replace(/\/+$/, "");
 
@@ -88,9 +90,7 @@ function FindMedicine() {
   return (
     <div className="find-medicine-page">
       {/* Header */}
-      <header className="fm-header">
-        <h1 className="fm-text">PharmaNear</h1>
-      </header>
+      <Header />
 
       {/* Main Content */}
       <main className="fm-main">
@@ -174,15 +174,7 @@ function FindMedicine() {
         </div>
       </main>
 
-      <footer className="fm-footer">
-        <div className="fm-footer-links">
-          <Link to="/about">About Us</Link>
-          <Link to="/services">Services</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/privacy-policy">Privacy Policy</Link>
-          <Link to="/terms-of-service">Terms of Service</Link>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
