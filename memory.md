@@ -157,3 +157,8 @@ Connects patients with nearby pharmacies to check medication stock. Features use
 
 - [.agents/AGENTS.md](file:///d:/git%20folder/PharmaNear/.agents/AGENTS.md) - Auto-loading workspace customization rules and behavior guidelines for AI agents.
 - [README.md](file:///d:/git%20folder/PharmaNear/README.md) - Tech Stack, Getting Started guide, and folder structure.
+
+### Optimization: Frontend Code Splitting & Prefetching
+- Migrated core routes (`MapPage`, `PharmacyAdmin`, `PharmacyDashboard`) to asynchronous loading using `React.lazy()` to reduce initial bundle overhead.
+- Introduced `<Suspense>` wrapper with a full-screen loading placeholder.
+- Implemented an `onFocus` trigger on `FirstPage.jsx` inputs to selectively prefetch the heavy Leaflet bundle (`~708 kB`) in the background based on user intent.
